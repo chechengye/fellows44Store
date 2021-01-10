@@ -2,7 +2,9 @@ package com.weichuang.admin.controller;
 
 
 import com.weichuang.admin.pojo.Product;
+import com.weichuang.admin.service.CategoryService;
 import com.weichuang.admin.service.ProductService;
+import com.weichuang.admin.service.impl.CategoryServiceImpl;
 import com.weichuang.admin.service.impl.ProductServiceImpl;
 
 import javax.servlet.ServletException;
@@ -20,7 +22,9 @@ public class AdminProductListServlet extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ProductService productService = new ProductServiceImpl();
         List<Product> productList = productService.getProductList();
+        CategoryService categoryService = new CategoryServiceImpl();
         req.setAttribute("productList",productList);
+        req.setAttribute("categoryList",categoryService.getCategoryList());
         req.getRequestDispatcher("/admin/product/list.jsp").forward(req,resp);
     }
 

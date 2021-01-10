@@ -1,6 +1,7 @@
 package com.weichuang.admin.service;
 
 import com.weichuang.admin.pojo.Product;
+import com.weichuang.admin.vo.Condition;
 
 import java.util.List;
 
@@ -34,4 +35,11 @@ public interface ProductService {
      * @return
      */
     int updateProduct(Product product);
+
+    /**
+     * 根据筛选条件查询商品列表
+     * @param condition
+     * @return
+     */
+    List<Product> getProductListByCondition(Condition condition);
 }

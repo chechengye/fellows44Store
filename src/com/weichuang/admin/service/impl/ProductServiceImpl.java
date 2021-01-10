@@ -3,6 +3,7 @@ package com.weichuang.admin.service.impl;
 import com.weichuang.admin.dao.ProductDao;
 import com.weichuang.admin.pojo.Product;
 import com.weichuang.admin.service.ProductService;
+import com.weichuang.admin.vo.Condition;
 
 import java.util.List;
 import java.util.UUID;
@@ -39,5 +40,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public int updateProduct(Product product) {
         return productDao.updateProduct(product);
+    }
+
+    @Override
+    public List<Product> getProductListByCondition(Condition condition) {
+        return productDao.getProductListByCondition(condition);
     }
 }
