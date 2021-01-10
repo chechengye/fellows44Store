@@ -30,4 +30,14 @@ public class ProductServiceImpl implements ProductService {
         product.setPid(UUID.randomUUID().toString().replaceAll("-",""));
         return productDao.saveProduct(product);
     }
+
+    @Override
+    public Product getProductByPid(String pid) {
+        return productDao.getProductByPid(pid);
+    }
+
+    @Override
+    public int updateProduct(Product product) {
+        return productDao.updateProduct(product);
+    }
 }

@@ -74,7 +74,7 @@
 										<c:if test="${p.isHot == 0}">否</c:if>
 										</td>
 									<td align="center" style="HEIGHT: 22px"><a
-										href="${ pageContext.request.contextPath }/admin/product/edit.jsp">
+										href="${ pageContext.request.contextPath }/adminProductEdit?pid=${p.pid}">
 											<img
 											src="${pageContext.request.contextPath}/images/i_edit.gif"
 											border="0" style="CURSOR: hand">

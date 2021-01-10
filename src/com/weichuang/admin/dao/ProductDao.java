@@ -3,6 +3,7 @@ package com.weichuang.admin.dao;
 import com.weichuang.admin.pojo.Product;
 import com.weichuang.web.util.C3p0Util;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
@@ -62,6 +63,48 @@ public class ProductDao {
                     product.getPflag(),
                     product.getCid(),
                     product.getIsDelete());
+            return rows;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public Product getProductByPid(String pid) {
+        try {
+            String sql = "select " +
+                    "p.pname , " +
+                    "p.pid , " +
+                    "p.market_price as marketPrice , " +
+                    "p.shop_price as shopPrice , " +
+                    "p.is_hot as isHot," +
+                    "p.pimage," +
+                    "p.pdesc," +
+                    "p.cid from product p where p.is_delete != 1 and pid = ?";
+            Product product = qr.query(sql , new BeanHandler<>(Product.class),pid);
+            return product;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public int updateProduct(Product product) {
+        try {
+            String sql = "update product set pname = ? , " +
+                    "market_price = ? , " +
+                    "shop_price = ? ," +
+                    "is_hot = ? , " +
+                    "pdesc = ? , " +
+                    "cid = ? where " +
+                    "pid = ?";
+            int rows = qr.update(sql, product.getPname(),
+                    product.getMarketPrice(),
+                    product.getShopPrice(),
+                    product.getIsHot(),
+                    product.getPdesc(),
+                    product.getCid(),
+                    product.getPid());
             return rows;
         } catch (SQLException e) {
             e.printStackTrace();

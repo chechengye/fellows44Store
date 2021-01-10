@@ -20,4 +20,18 @@ public interface ProductService {
      * @return
      */
     int saveProduct(Product product);
+
+    /**
+     * 根据pid获取商品信息
+     * @param pid
+     * @return
+     */
+    Product getProductByPid(String pid);
+
+    /**
+     * 更新商品
+     * @param product
+     * @return
+     */
+    int updateProduct(Product product);
 }
