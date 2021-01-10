@@ -1,6 +1,6 @@
-package com.weichuang.service;
+package com.weichuang.web.service;
 
-import com.weichuang.pojo.User;
+import com.weichuang.web.pojo.User;
 
 public interface UserService {
     /**

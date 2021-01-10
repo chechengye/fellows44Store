@@ -1,9 +1,9 @@
-package com.weichuang.controller;
+package com.weichuang.web.controller;
 
-import com.weichuang.pojo.Product;
-import com.weichuang.service.ProductService;
-import com.weichuang.service.impl.ProductServiceImpl;
-import com.weichuang.vo.Page;
+import com.weichuang.web.pojo.Product;
+import com.weichuang.web.service.ProductService;
+import com.weichuang.web.service.impl.ProductServiceImpl;
+import com.weichuang.web.vo.Page;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 

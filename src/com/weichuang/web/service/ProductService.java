@@ -1,7 +1,7 @@
-package com.weichuang.service;
+package com.weichuang.web.service;
 
-import com.weichuang.pojo.Product;
-import com.weichuang.vo.Page;
+import com.weichuang.web.pojo.Product;
+import com.weichuang.web.vo.Page;
 
 import java.util.List;
 
@@ -26,4 +26,6 @@ public interface ProductService {
      * @return
      */
     Page getPageByCurrentPageAndMaxCount(String currentPage, int maxCount);
+
+
 }

@@ -1,8 +1,8 @@
-package com.weichuang.controller;
+package com.weichuang.web.controller;
 
-import com.weichuang.pojo.User;
-import com.weichuang.service.UserService;
-import com.weichuang.service.impl.UserServiceImpl;
+import com.weichuang.web.pojo.User;
+import com.weichuang.web.service.UserService;
+import com.weichuang.web.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

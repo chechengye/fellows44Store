@@ -1,4 +1,4 @@
-package com.weichuang.util;
+package com.weichuang.web.util;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 

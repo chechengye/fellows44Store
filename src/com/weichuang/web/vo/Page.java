@@ -1,6 +1,6 @@
-package com.weichuang.vo;
+package com.weichuang.web.vo;
 
-import com.weichuang.pojo.Product;
+import com.weichuang.web.pojo.Product;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
-package com.weichuang.service.impl;
+package com.weichuang.web.service.impl;
 
-import com.weichuang.dao.ProductDao;
-import com.weichuang.pojo.Product;
-import com.weichuang.service.ProductService;
-import com.weichuang.vo.Page;
+import com.weichuang.web.dao.ProductDao;
+import com.weichuang.web.pojo.Product;
+import com.weichuang.web.service.ProductService;
+import com.weichuang.web.vo.Page;
 
 import java.util.List;
 

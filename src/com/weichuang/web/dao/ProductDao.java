@@ -1,7 +1,7 @@
-package com.weichuang.dao;
+package com.weichuang.web.dao;
 
-import com.weichuang.pojo.Product;
-import com.weichuang.util.C3p0Util;
+import com.weichuang.web.pojo.Product;
+import com.weichuang.web.util.C3p0Util;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -88,7 +88,7 @@ public class ProductDao {
                     "p.market_price as marketPrice , " +
                     "p.shop_price as shopPrice , " +
                     "p.is_hot as isHot," +
-                    "p.pimage from product p limit ? , ?";
+                    "p.pimage from product p where p.is_delete != 1 limit ? , ?";
             List<Product> productList = qr.query(sql , new BeanListHandler<>(Product.class) , currentIndex , maxCount);
             return productList;
         } catch (SQLException e) {

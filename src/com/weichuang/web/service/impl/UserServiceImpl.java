@@ -1,8 +1,8 @@
-package com.weichuang.service.impl;
+package com.weichuang.web.service.impl;
 
-import com.weichuang.dao.UserDao;
-import com.weichuang.pojo.User;
-import com.weichuang.service.UserService;
+import com.weichuang.web.dao.UserDao;
+import com.weichuang.web.pojo.User;
+import com.weichuang.web.service.UserService;
 
 import java.util.Arrays;
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package com.weichuang.pojo;
+package com.weichuang.web.pojo;
 
 import java.io.Serializable;
 

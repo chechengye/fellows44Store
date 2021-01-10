@@ -1,7 +1,7 @@
-package com.weichuang.dao;
+package com.weichuang.web.dao;
 
-import com.weichuang.pojo.User;
-import com.weichuang.util.C3p0Util;
+import com.weichuang.web.pojo.User;
+import com.weichuang.web.util.C3p0Util;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 
