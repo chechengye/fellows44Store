@@ -32,6 +32,7 @@ public class AdminSearchProductListServlet extends HttpServlet{
             List<Product> productList = productService.getProductListByCondition(condition);
             req.setAttribute("productList",productList);
             req.setAttribute("categoryList",categoryService.getCategoryList());
+            req.setAttribute("condition",condition);
             req.getRequestDispatcher("/admin/product/list.jsp").forward(req,resp);
         } catch (IllegalAccessException e) {
             e.printStackTrace();

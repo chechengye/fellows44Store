@@ -8,6 +8,7 @@
 	rel="stylesheet" type="text/css" />
 <script language="javascript"
 	src="${pageContext.request.contextPath}/js/public.js"></script>
+	<script src="../../js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
 			function addProduct(){
 				window.location.href = "${pageContext.request.contextPath}/adminCategoryList";
@@ -19,6 +20,11 @@
                     window.location.href = "${pageContext.request.contextPath}/adminDeleteProduct?pid=" + pid;
 				}
             }
+            $(document).ready(function () {
+				$("#is_hot option[value = ${condition.isHot}]").prop("selected",true);
+                $("#cid option[value = ${condition.cid}]").prop("selected",true);
+
+            });
 		</script>
 </HEAD>
 <body>
@@ -26,7 +32,7 @@
 	<form id="Form1" name="Form1"
 		action="${pageContext.request.contextPath}/adminSearchProductList"
 		method="post">
-		&nbsp;&nbsp;&nbsp;商品名称：<input type="text" placeholder="请输入要查询的商品名称" name="pname" style="height: 30px;width: 170px"/>
+		&nbsp;&nbsp;&nbsp;商品名称：<input id="p_name" type="text" placeholder="请输入要查询的商品名称" value="${condition.pname}" name="pname" style="height: 30px;width: 170px"/>
 		&nbsp;&nbsp;&nbsp;是否热销：<select id="is_hot" name="isHot">
 		                                <option value="-1">不限</option>
 										<option value="1">是</option>
