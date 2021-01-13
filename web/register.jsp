@@ -10,7 +10,23 @@
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <!-- 引入自定义css文件 style.css -->
 <link rel="stylesheet" href="css/style.css" type="text/css" />
-
+<script>
+	
+	function checkUserName(obj) {
+		var userName = $(obj).val();//取出输入的值
+		if("" != userName){
+		    $.ajax({
+				url:"${pageContext.request.contextPath}/checkUserName",
+				data:{"userName":userName},
+				type:"post",
+				success:function (data) {
+					$("#info").html(data);
+                },
+				dataType:"text"
+			});
+		}
+    }
+</script>
 <style>
 body {
 	margin-top: 20px;
@@ -47,7 +63,8 @@ font {
 						<label for="username" class="col-sm-2 control-label">用户名</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control" id="username"
-								placeholder="请输入用户名" name="username">
+								placeholder="请输入用户名" name="username" onblur="checkUserName(this)">
+							<span id="info"></span>
 						</div>
 					</div>
 					<div class="form-group">

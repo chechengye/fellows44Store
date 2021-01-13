@@ -17,4 +17,11 @@ public interface UserService {
      * @return
      */
     User login(String username, String password);
+
+    /**
+     * 检查用户名是否存在
+     * @param userName
+     * @return
+     */
+    int checkUserNameIsExist(String userName);
 }

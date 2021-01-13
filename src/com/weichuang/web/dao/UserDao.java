@@ -4,6 +4,7 @@ import com.weichuang.web.pojo.User;
 import com.weichuang.web.util.C3p0Util;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.SQLException;
 
@@ -42,5 +43,15 @@ public class UserDao {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public int checkUserNameIsExist(String userName) {
+        try {
+            Long l = (Long)qr.query("select count(*) from user where username = ?" , new ScalarHandler(), userName);
+            return l.intValue();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 }
