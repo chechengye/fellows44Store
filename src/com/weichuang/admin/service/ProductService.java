@@ -42,4 +42,6 @@ public interface ProductService {
      * @return
      */
     List<Product> getProductListByCondition(Condition condition);
+
+
 }

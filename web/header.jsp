@@ -51,8 +51,9 @@
 					<li><a href="#">电脑办公</a></li>
 				</ul>
 				<form class="navbar-form navbar-right" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search">
+					<div class="form-group" style="position: relative">
+						<input type="text" class="form-control" placeholder="Search" onkeyup="searchProductByWord(this)"/>
+						<div id="content" style="z-index : 1000;width: 170px;height: 200px;background: white;margin-top: 2px;position: absolute;display: none"></div>
 					</div>
 					<button type="submit" class="btn btn-default">Submit</button>
 				</form>
@@ -60,3 +61,35 @@
 		</div>
 	</nav>
 </div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+	function searchProductByWord(obj) {
+		var word = $(obj).val();
+		var contentStr = "";
+		if(word != ""){
+		    $.ajax({
+				url:"${pageContext.request.contextPath}/searchProductByWord",
+				data:{"word":word},
+				success:function (data) {
+					for(var i = 0 ; i < data.length ; i++){
+                        contentStr += "<a style='cursor: pointer ;' href='${pageContext.request.contextPath}/productInfo?pid="+data[i].pid+"'><div onmouseover='mouseOverFn(this)' onmouseout='mouseOutFn(this)' style='font-size: 11px;padding: 5px'>"+data[i].pname+"</div></a>";
+                	}
+                    $("#content").html(contentStr);
+                    $("#content").css("display","block");
+                },
+				dataType:"json",
+				type:"post"
+			});
+		}else {
+            $("#content").css("display","none");
+        }
+    }
+
+    function mouseOverFn(obj) {
+		$(obj).css("background","#999");
+    }
+
+    function mouseOutFn(obj) {
+        $(obj).css("background","#fff");
+    }
+</script>

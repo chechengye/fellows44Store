@@ -28,4 +28,10 @@ public interface ProductService {
     Page getPageByCurrentPageAndMaxCount(String currentPage, int maxCount);
 
 
+    /**
+     * 根据关键字模糊查询
+     * @param word
+     * @return
+     */
+    List<com.weichuang.web.pojo.Product> getSearchProductByWord(String word);
 }

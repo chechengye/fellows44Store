@@ -35,4 +35,9 @@ public class ProductServiceImpl implements ProductService {
         page.setTotalPages((int)Math.ceil(page.getTotalCount() * 1.0 / maxCount));
         return page;
     }
+
+    @Override
+    public List<Product> getSearchProductByWord(String word) {
+        return productDao.getSearchProductByWord(word);
+    }
 }

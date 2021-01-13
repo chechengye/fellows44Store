@@ -96,4 +96,17 @@ public class ProductDao {
         }
         return Collections.emptyList();
     }
+
+    public List<Product> getSearchProductByWord(String word) {
+        try {
+            String sql = "select " +
+                    "p.pname , " +
+                    "p.pid from product p where p.is_delete != 1 and p.pname like ? limit 0 , 10";
+            List<Product> productList = qr.query(sql , new BeanListHandler<>(Product.class),"%" +word+ "%");
+            return productList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Collections.emptyList();
+    }
 }
