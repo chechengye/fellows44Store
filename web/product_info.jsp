@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,6 +12,23 @@
 <!-- 引入自定义css文件 style.css -->
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 
+<script>
+	function checkIsLogin() {
+		<c:if test="${user != null}">
+			$.ajax({
+				url:"${pageContext.request.contextPath}/cartSave",
+				data:{"pid":"${product.pid}","uid":"${user.uid}","count":$("#quantity").val()},
+				success:function (data) {
+					alert(data)
+				},
+				dataType:"text"
+       		 });
+		</c:if>
+		<c:if test="${user == null}">
+			window.location.href = "${pageContext.request.contextPath}/login.jsp";
+		</c:if>
+    }
+</script>
 <style>
 body {
 	margin-top: 20px;
@@ -73,9 +91,9 @@ body {
 						</div>
 
 						<div style="margin: 20px 0 10px 0;; text-align: center;">
-							<a href="cart.htm"> <input
+							<a href="javascript:void(0)"> <input
 								style="background: url('./images/product.gif') no-repeat scroll 0 -600px rgba(0, 0, 0, 0); height: 36px; width: 127px;"
-								value="加入购物车" type="button">
+								value="加入购物车" type="button" onclick="checkIsLogin()"/>
 							</a> &nbsp;收藏商品
 						</div>
 					</div>

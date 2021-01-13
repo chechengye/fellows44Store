@@ -36,7 +36,7 @@ public class UserDao {
     public User login(String username, String password) {
 
         try {
-            User user = qr.query("select u.name from user u where u.username = ? and u.password = ? and u.is_delete != 1"
+            User user = qr.query("select u.name,u.uid from user u where u.username = ? and u.password = ? and u.is_delete != 1"
                     , new BeanHandler<>(User.class), username, password);
             return user;
         } catch (SQLException e) {

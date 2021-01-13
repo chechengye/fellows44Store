@@ -14,7 +14,7 @@
 		<ol class="list-inline">
 			<c:if test="${user != null}">
 				欢迎,${user.name}
-				<li><a href="cart.jsp">购物车</a></li>
+				<li><a href="${pageContext.request.contextPath}/cartList?uid=${user.uid}">购物车</a></li>
 				<li><a href="order_list.jsp">我的订单</a></li>
 			</c:if>
 			<c:if test="${user == null}">

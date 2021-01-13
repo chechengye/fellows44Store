@@ -6,9 +6,9 @@ import java.util.Date;
 public class Product implements Serializable{
     private String pid;
     private String pname;
-    private double marketPrice;
     private double  shopPrice;
     private String pimage;
+    private double marketPrice;
     private Date pdate;
     private int isHot;
     private String pdesc;
